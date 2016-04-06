@@ -1,0 +1,66 @@
+export class Publications{
+	constructor(){
+		this.publications = [
+			{
+				title:"Title1",
+				authors:["1,2"],
+				year:"xxxx",
+				journal:"",
+				conference:"",
+				accepted:true,
+				rejected:false,
+				under_review:false
+			},
+			{
+				title:"Title2",
+				authors:["1"],
+				year:"xxxx",
+				journal:"",
+				conference:"",
+				accepted:true,
+				rejected:false,
+				under_review:false
+			},
+			{
+				title:"Title3",
+				authors:["3"],
+				year:"xxxx",
+				journal:"",
+				conference:"",
+				accepted:true,
+				rejected:false,
+				under_review:false			},
+			{
+				title:"Title4",
+				authors:["4"],
+				year:"xxxx",
+				journal:"",
+				conference:"",
+				accepted:true,
+				rejected:false,
+				under_review:false
+			},
+			{
+				title:"Title5",
+				authors:["3"],
+				year:"xxxx",
+				journal:"",
+				conference:"",
+				accepted:true,
+				rejected:false,
+				under_review:false
+			},
+			{
+				title:"Title6",
+				authors:[""],
+				year:"xxxx",
+				journal:"",
+				conference:"",
+				accepted:true,
+				rejected:false,
+				under_review:false
+			}
+
+		]
+	}
+}
