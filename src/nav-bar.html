@@ -1,20 +1,14 @@
 <template bindable="router">
-  <div class="ui pointing menu">
-  <a class="active item">
-    Home
-  </a>
-  <a class="item">
-    Research
-  </a>
-  <a class="item">
-    Students
+  <div id="main-menu" class="ui attached stackable pointing grey secondary large menu">
+  <a href="#welcome" class=></a>
+  <a repeat.for="i of router.navigation" 
+      href.bind="i.href" 
+      class="${i.isActive? 'active':''} ui item">
+    ${i.title}
   </a>
   <div class="right menu">
     <div class="item">
-      <div class="ui transparent icon input">
-        <input type="text" placeholder="Search...">
-        <i class="search link icon"></i>
-      </div>
+        <i class="blue linkedin  inverted square icon"></i>     
     </div>
   </div>
 </div>
