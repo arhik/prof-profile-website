@@ -11,7 +11,7 @@
     		<template repeat.for="i of publicationslist">
 				<tr>
 				      	<td>
-				        	<h3 class="ui center aligned header">${i.YEAR}</h3>
+				        	<b class="ui center aligned header">${i.YEAR}</b>
 				      	</td>
 				        <td if.bind="i.JOURNAL"class="single line">
 				        	Conference
@@ -22,8 +22,9 @@
 
 
 				        <!-- <td if.bind=""> -->
-						<td>
-							<innerHTML>${i.AUTHOR}</innerHTML>:${i.TITLE}
+						<td >
+							<span ref="authors">${authors.innerHTML=i.AUTHOR}</span>
+							${i.TITLE}
 						</td>
 		    		</tr>
 				
