@@ -1,4 +1,5 @@
 <template>
+	
 	<table class="ui celled striped table">
 	  	<thead>
 	    	<tr>
@@ -8,7 +9,9 @@
 	    	</tr>
 		</thead>
     	<tbody>
+    		<require from="./utilities/title-format"></require>
     		<template repeat.for="i of publicationslist">
+    			<!-- <require from="./utilities/title-format"></require> -->
 				<tr>
 			      	<td>
 			        	<b class="ui center aligned">${i.YEAR}</b>
@@ -22,7 +25,7 @@
 					<td >
 						<span ref="authors">${authors.innerHTML=i.AUTHOR}</span>
 						<span ref="year"> (${year.innerHTML=i.YEAR}).</span>
-						${i.TITLE}
+						${i.TITLE | titleFormat }
 						<span if.bind="i.JOURNAL" ref="journal">
 							<i>${i.JOURNAL}</i>,
 						</span>
