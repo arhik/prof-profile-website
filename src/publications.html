@@ -11,7 +11,7 @@
     		<template repeat.for="i of publicationslist">
 				<tr>
 			      	<td>
-			        	<b class="ui center aligned header">${i.YEAR}</b>
+			        	<b class="ui center aligned">${i.YEAR}</b>
 			      	</td>
 			        <td if.bind="!i.JOURNAL"class="single line">
 			        	Conference
@@ -21,48 +21,36 @@
 			        </td>
 					<td >
 						<span ref="authors">${authors.innerHTML=i.AUTHOR}</span>
+						<span ref="year"> (${year.innerHTML=i.YEAR}).</span>
 						${i.TITLE}
 						<span if.bind="i.JOURNAL" ref="journal">
-							<i>${i.JOURNAL}</i>.
+							<i>${i.JOURNAL}</i>,
 						</span>
 						<span if.bind="!i.JOURNAL" ref="njournal">
-							<i>${i.BOOKTITLE}</i>.
+							<i>${i.BOOKTITLE}</i>,
 						</span>
 						<span if.bind="i.ADDRESS" ref="address">
-							${address.innerHTML = i.ADDRESS}.
+							${address.innerHTML = i.ADDRESS},
+						</span>
+						<span if.bind="i.VOLUME" ref="volume">
+							${address.innerHTML = i.VOLUME}
+						</span>
+						<span if.bind="i.NUMBER" ref="number">
+							(${address.innerHTML = i.NUMBER}),
 						</span>
 						<span if.bind="i.PAGES" ref="pages"><i> pp. ${i.PAGES} </i> </span>
 						<span if.bind="i.URL"><a class="ui compact mini button" href.bind="i.URL">link</a></span>
-						<span><a class="ui compact circular mini button" click.delegate="bibshow(event)">bib</a></span>
+						<require from="./bibliography"> </require>
+						<bibliography ibib.bind="i"></bibliography>
+						<span>
+							<!-- <a class="ui button" href="#">ccdd</a> -->
+							
+						</span>
 
+						
 					</td>
 	    		</tr>		
 			</template>
-			<div class="ui visible modal" ref="bibmodal">
-						  <i class="close icon"></i>
-						  <div class="header">
-						    Profile Picture
-						  </div>
-						  <div class="image content">
-						    <div class="ui medium image">
-						      <!-- <img src="/images/avatar/large/chris.jpg"> -->
-						    </div>
-						    <div class="description">
-						      <div class="ui header">We've auto-chosen a profile image for you.</div>
-						      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-						      <p>Is it okay to use this photo?</p>
-						    </div>
-						  </div>
-						  <div class="actions">
-						    <div class="ui black deny button">
-						      Nope
-						    </div>
-						    <div class="ui positive right labeled icon button">
-						      Yep, that's me
-						      <i class="checkmark icon"></i>
-						    </div>
-						  </div>
-						</div>
     		
   		</tbody>
 	
@@ -70,3 +58,5 @@
 	</table>
 	
 </template>
+
+<!-- <a class="ui compact circular mini button" click.delegate="">bib</a> -->
