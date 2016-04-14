@@ -1,8 +1,11 @@
 import {Bibtexparser} from "./bibtexparser"
-import {inject} from "aurelia-framework";
+import {inject, bindable} from "aurelia-framework";
+
+import $ from "jquery";
 
 @inject(Bibtexparser)
 export class Publications{
+	@bindable bibmodal;
 	constructor(parser){
 		this.parser = parser;
 		this.pubs = "";
@@ -21,5 +24,10 @@ export class Publications{
 	}
 
 	attached(){
+	}
+
+	bibshow(){
+		console.log(this.bibmodal);
+		$('.ui.modal').modal('show');
 	}
 }
