@@ -1,6 +1,36 @@
 <template>
-	${this.publications}
-	<div repeat.for="publication of publications">
-		<p>${this.publications[publication]}</p>
-	</div>
+	<table class="ui celled striped table">
+	  	<thead>
+	    	<tr>
+	    		<th>Year</th>
+	    		<th>Type</th>
+	    		<th>Publications</th>
+	    	</tr>
+		</thead>
+    	<tbody>
+    		<template repeat.for="i of publicationslist">
+				<tr>
+				      	<td>
+				        	<h3 class="ui center aligned header">${i.YEAR}</h3>
+				      	</td>
+				        <td if.bind="i.JOURNAL"class="single line">
+				        	Conference
+				        </td>
+			           	<td if.bind="!i.JOURNAL"class="single line">
+				        	Journal
+				        </td>
+
+
+				        <!-- <td if.bind=""> -->
+						<td>
+							<innerHTML>${i.AUTHOR}</innerHTML>:${i.TITLE}
+						</td>
+		    		</tr>
+				
+			</template>
+    		
+  		</tbody>
+	
+			
+	</table>
 </template>

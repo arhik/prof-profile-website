@@ -5,33 +5,22 @@ import {inject} from "aurelia-framework";
 export class Publications{
 	constructor(parser){
 		this.parser = parser;
-		this.pubs = [
-			{
-				title:"Title1",
-				authors:["1,2"],
-				year:"xxxx",
-				journal:"",
-				conference:"",
-				accepted:true,
-				rejected:false,
-				under_review:false
-			}
-		]
-
-		// this.publications = "";
-
+		this.pubs = "";
+		this.publicationslist = [];
 	}
 
 	activate(){
 		this.pubs  = this.parser.getbib();
 		this.pubkeys = Object.keys(this.pubs);
 		console.log(this.pubs)
-		return this.publications
-	}
-	attached(){
-
 		for(var i in this.pubs){
 			console.log(this.pubs[i])
+			this.publicationslist.push(this.pubs[i])
 		}
+		return this.publicationslist
+	}
+
+	attached(){
+
 	}
 }
