@@ -1,6 +1,11 @@
+import {Bibtexparser} from "./bibtexparser"
+import {inject} from "aurelia-framework";
+
+@inject(Bibtexparser)
 export class Publications{
-	constructor(){
-		this.publications = [
+	constructor(parser){
+		this.parser = parser;
+		this.pubs = [
 			{
 				title:"Title1",
 				authors:["1,2"],
@@ -10,57 +15,23 @@ export class Publications{
 				accepted:true,
 				rejected:false,
 				under_review:false
-			},
-			{
-				title:"Title2",
-				authors:["1"],
-				year:"xxxx",
-				journal:"",
-				conference:"",
-				accepted:true,
-				rejected:false,
-				under_review:false
-			},
-			{
-				title:"Title3",
-				authors:["3"],
-				year:"xxxx",
-				journal:"",
-				conference:"",
-				accepted:true,
-				rejected:false,
-				under_review:false			},
-			{
-				title:"Title4",
-				authors:["4"],
-				year:"xxxx",
-				journal:"",
-				conference:"",
-				accepted:true,
-				rejected:false,
-				under_review:false
-			},
-			{
-				title:"Title5",
-				authors:["3"],
-				year:"xxxx",
-				journal:"",
-				conference:"",
-				accepted:true,
-				rejected:false,
-				under_review:false
-			},
-			{
-				title:"Title6",
-				authors:[""],
-				year:"xxxx",
-				journal:"",
-				conference:"",
-				accepted:true,
-				rejected:false,
-				under_review:false
 			}
-
 		]
+
+		// this.publications = "";
+
+	}
+
+	activate(){
+		this.pubs  = this.parser.getbib();
+		this.pubkeys = Object.keys(this.pubs);
+		console.log(this.pubs)
+		return this.publications
+	}
+	attached(){
+
+		for(var i in this.pubs){
+			console.log(this.pubs[i])
+		}
 	}
 }

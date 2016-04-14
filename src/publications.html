@@ -1,13 +1,6 @@
 <template>
-	<div class="ui divided list" repeat.for="i of publications">
-		<div class="item">
-			<div class="semgent">
-				${i.title}
-				${i.authors}
-				${i.year}
-				${i.journal}
-			</div> 
-
-		</div>
+	${this.publications}
+	<div repeat.for="publication of publications">
+		<p>${this.publications[publication]}</p>
 	</div>
 </template>
