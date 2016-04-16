@@ -4,22 +4,6 @@ var parser = require("bibtex-parser");
 
 export class Bibtexparser{
 	constructor(){
-		this.bibliography = "@inproceedings{Lysenko:2010:GMC:1839778.1839781,\
-							 author = {Lysenko, Mikola and Nelaturi, Saigopal and Shapiro, Vadim},\
-							 title = {Group morphology with convolution algebras},\
-							 booktitle = {Proceedings of the 14th ACM Symposium on Solid and Physical Modeling},\
-							 series = {SPM '10},\
-							 year = {2010},\
-							 isbn = {978-1-60558-984-8},\
-							 location = {Haifa, Israel},\
-							 pages = {11--22},\
-							 numpages = {12},\
-							 url = {http://doi.acm.org/10.1145/1839778.1839781},\
-							 doi = {10.1145/1839778.1839781},\
-							 acmid = {1839781},\
-							 publisher = {ACM},\
-							 address = {New York, NY, USA},\
-							}";
 		this.parsedbib = "";
 		this.bibliographies = '@BOOK{b.FioMultiCore,\
   author =       {S. Rajasekaran and <b>L. Fiondella</b> and M.F. Ahmed and R.A. Ammar},\

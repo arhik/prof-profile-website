@@ -1,5 +1,5 @@
 export class AuthorFormatValueConverter{
 	toView(value){
-		return 
+		return value.split;
 	}
 }

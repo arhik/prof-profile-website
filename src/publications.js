@@ -1,8 +1,8 @@
-import $ from "jquery";
+// import $ from "jquery";
 
-$.fn.modal = require('semantic-ui-modal')
-$.fn.dimmer = require('semantic-ui-dimmer')
-$.fn.transition = require("semantic-ui-transition")
+// $.fn.modal = require('semantic-ui-modal')
+// $.fn.dimmer = require('semantic-ui-dimmer')
+// $.fn.transition = require("semantic-ui-transition")
 
 import {Bibtexparser} from "./bibtexparser"
 import {inject, bindable} from "aurelia-framework";
@@ -19,9 +19,10 @@ export class Publications{
 	activate(){
 		this.pubs  = this.parser.getbib();
 		this.pubkeys = Object.keys(this.pubs);
-		console.log(this.pubs)
+		console.log(this.pubkeys)
 		for(var i in this.pubs){
 			console.log(this.pubs[i])
+			this.pubs[i].key = i;
 			this.publicationslist.push(this.pubs[i])
 		}
 		return this.publicationslist

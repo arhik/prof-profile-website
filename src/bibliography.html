@@ -1,21 +1,33 @@
 <template>
-	<p>There is no doubt this is not working as expected</p>
-	<a class="ui mini compact circular button"> ${ibib} </a>
-	<!-- <div class="ui modal" ref="bibmodal">
+	<!-- <p>There is no doubt this is not working as expected</p> -->
+	<require from="./utilities/to-lower"></require>	
+	<a class="ui mini compact circular button" click.trigger="showbib()" > bib </a>
+	<div class="ui modal" ref="bibmodal">
 				<i class="close icon"></i>
-				<div class="header">
+				<div class="header" style="margin:10px">
 					Bibliography
 				</div>
-				<div class="">
-					${ibib.TITLE}
+				<div class="text container">
+					@${ibib.entryType | toLower } {${ibib.key}, <br\>
+						<div style="padding-left: 2em">author  = {${ibib.AUTHOR}}</div> 
+						<div style="padding-left: 2em">editor  = {${ibib.EDITOR}}</div>
+						<div style="padding-left: 2em">title  = {${ibib.TITLE}}</div>
+						<div style="padding-left: 2em">publisher  = {${ibib.PUBLISHER}}</div>
+						<div style="padding-left: 2em">year  = {${ibib.YEAR}}</div>
+						<div style="padding-left: 2em">volume  = {${ibib.VOLUME}}</div>
+						<div style="padding-left: 2em">number  = {${ibib.SERIES}}</div>
+						<div style="padding-left: 2em">address  = {${ibib.ADDRESS}}</div>
+						<div style="padding-left: 2em">edition  = {${ibib.EDITION}}</div>
+						<div style="padding-left: 2em">month  = {${ibib.MONTH}}</div>
+						<div style="padding-left: 2em">isbn  = {${ibib.ISBN}}</div>
 				</div>
 
 				<div class="actions">
-					<div class="ui positive right labeled icon button">
+					<div class="ui positive right labeled icon button" click.trigger="toClipboard()">
 						copy
 					<i class="copy icon"></i>
 					</div>
 				</div>
-			</div> -->
+			</div>
 	
 </template>

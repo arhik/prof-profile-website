@@ -1,5 +1,5 @@
 <template>
-	
+	<require from="./bibliography"></require>
 	<table class="ui celled striped table">
 	  	<thead>
 	    	<tr>
@@ -12,24 +12,32 @@
     		<require from="./utilities/title-format"></require>
     		<template repeat.for="i of publicationslist">
     			<!-- <require from="./utilities/title-format"></require> -->
+
 				<tr>
 			      	<td>
 			        	<b class="ui center aligned">${i.YEAR}</b>
 			      	</td>
-			        <td if.bind="!i.JOURNAL"class="single line">
+			        <td if.bind="i.entryType=='BOOK'" class="single line">
+			        	Book
+			        </td>
+			        <td if.bind="i.entryType=='INPROCEEDINGS'" class="single line">
 			        	Conference
 			        </td>
-		           	<td if.bind="i.JOURNAL"class="single line">
+
+		           	<td if.bind="i.entryType=='ARTICLE'" class="single line">
 			        	Journal
 			        </td>
 					<td >
 						<span ref="authors">${authors.innerHTML=i.AUTHOR}</span>
 						<span ref="year"> (${year.innerHTML=i.YEAR}).</span>
 						${i.TITLE | titleFormat }
-						<span if.bind="i.JOURNAL" ref="journal">
+						<span if.bind="i.entryType=='BOOK'" ref="book">
+							<i>${i.PUBLISHER}</i>,
+						</span>
+						<span if.bind="i.entryType=='ARTICLE'" ref="journal">
 							<i>${i.JOURNAL}</i>,
 						</span>
-						<span if.bind="!i.JOURNAL" ref="njournal">
+						<span if.bind="i.entryType=='INPROCEEDINGS'" ref="njournal">
 							<i>${i.BOOKTITLE}</i>,
 						</span>
 						<span if.bind="i.ADDRESS" ref="address">
@@ -43,8 +51,9 @@
 						</span>
 						<span if.bind="i.PAGES" ref="pages"><i> pp. ${i.PAGES} </i> </span>
 						<span if.bind="i.URL"><a class="ui compact mini button" href.bind="i.URL">link</a></span>
-						<require from="./bibliography"> </require>
+						<!-- <require from="./bibliography"> </require> -->
 						<bibliography ibib.bind="i"></bibliography>
+						<!-- <gas></gas> -->
 						<span>
 							<!-- <a class="ui button" href="#">ccdd</a> -->
 							
