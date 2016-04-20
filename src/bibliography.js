@@ -16,19 +16,19 @@ export class Bibliography{
 	}
 
 	showbib(){
-		console.log(this.ibib)
+		// console.log(this.ibib)
 		$(this.bibmodal).modal({blurring:true}).modal('show');
 	}
 
 	toClipboard(){
 		$(this.bimodal).select();
 		try {
-			console.log(document.body)
+			// console.log(document.body)
     		var successful = document.execCommand('copy');
     		var msg = successful ? 'successful' : 'unsuccessful';
-    		console.log('Copying text command was ' + msg);
+    		// console.log('Copying text command was ' + msg);
   		} catch (err) {
-    		console.log('Oops, unable to copy');
+    		// console.log('Oops, unable to copy');
   		}
 	}
 
