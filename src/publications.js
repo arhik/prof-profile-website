@@ -3,7 +3,6 @@
 // $.fn.modal = require('semantic-ui-modal')
 // $.fn.dimmer = require('semantic-ui-dimmer')
 // $.fn.transition = require("semantic-ui-transition")
-
 import {Bibtexparser} from "./bibtexparser"
 import {inject, bindable} from "aurelia-framework";
 
