@@ -1,10 +1,35 @@
 <template>
-<div class="ui divided grid container">
+<div class="ui items">
+  <div class="item" repeat.for="project of present_projects">
+    <div class="image">
+      <!-- <img src="project.image"> -->
+    </div>
+    <div class="content">
+      <a class="header">${project.name}</a>
+      <div class="meta">
+        <span>Description</span>
+      </div>
+      <div class="description">
+        <p>${project.summary}</p>
+      </div>
+      <div class="extra">
+        Additional Details
+      </div>
+      <div class="extra" repeat.for="participant of i.participants">
+              ${participant}
+            </div>
+            <div class="head">Related Publications</div>
+            <div class="ui divided list" repeat.for="publication of i.related_publications">
+              <div class="item">${publication}</div>
+          </div>
+    </div>
+  </div>
+</template>
+
+<!-- <div class="ui divided grid container">
 <div class="ui cards">
   <div class="ui card" repeat.for="i of present_projects" >
-    <!-- <div class="ui egment"> -->
       <i class="ui user large icon"></i>
-    <!-- </div> -->
     <div class="content segment container">
       <div class="header">${i.name}</div>
       <div class="meta">
@@ -15,15 +40,13 @@
         <p>${i.summary}</p>
       </div>
       <div class="extra" repeat.for="participant of i.participants">
-			        ${participant}
-			      </div>
-			      <div class="head">Related Publications</div>
-			      <div class="ui divided list" repeat.for="publication of i.related_publications">
-			        <div class="item">${publication}</div>
-			        <!-- <div class="ui fitted divider"></div>							 -->
-			    </div>
+              ${participant}
+            </div>
+            <div class="head">Related Publications</div>
+            <div class="ui divided list" repeat.for="publication of i.related_publications">
+              <div class="item">${publication}</div>
+          </div>
     </div>
   </div>
-</div>	
-</div>
-</template>
+</div>  
+</div> -->

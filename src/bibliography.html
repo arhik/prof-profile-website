@@ -1,5 +1,4 @@
 <template>
-	<!-- <p>There is no doubt this is not working as expected</p> -->
 	<require from="./utilities/to-lower"></require>	
 	<a class="ui mini compact circular button" click.trigger="showbib()" > bib </a>
 	<div class="ui modal" ref="bibmodal">
@@ -7,7 +6,7 @@
 				<div class="header" style="margin:10px">
 					Bibliography
 				</div>
-				<div class="text container">
+				<div class="text container" ref="bibclip">
 					@${ibib.entryType | toLower } {${ibib.key}, <br\>
 						<div style="padding-left: 2em">author  = {${ibib.AUTHOR}}</div> 
 						<div style="padding-left: 2em">editor  = {${ibib.EDITOR}}</div>
@@ -21,11 +20,11 @@
 						<div style="padding-left: 2em">month  = {${ibib.MONTH}}</div>
 						<div style="padding-left: 2em">isbn  = {${ibib.ISBN}}</div>
 				</div>
-
 				<div class="actions">
-					<div class="ui positive right labeled icon button" click.trigger="toClipboard()">
+					<!-- <div class="ui positive right labeled icon button" click.trigger="toClipboard()"> -->
+					<div class="ui positive right labeled icon button" data-clipboard-target="bibclip" click.delegate="grabbib()">
 						copy
-					<i class="copy icon"></i>
+						<i class="copy icon"></i>
 					</div>
 				</div>
 			</div>

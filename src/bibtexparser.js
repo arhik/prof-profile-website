@@ -877,7 +877,7 @@ ISSN={1530-2075},}\
 
 	getbib(){
 		this.parsedbib = parser(this.bibliographies)
-		console.log(this.parsedbib)
+		// console.log(this.parsedbib)
 		return this.parsedbib;
 	}
 }
